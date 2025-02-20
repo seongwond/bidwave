@@ -2,7 +2,7 @@ spring:
   mvc:
     static-path-pattern: /resources/**
     view:
-      prefix: /WEB-INF/views/
+      prefix: WEB-INF/views/
       suffix: .jsp
   application:
     name: BidWave
@@ -16,9 +16,7 @@ spring:
     username: root
     password: 0000
     driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      connection-timeout: 30000
-      maximum-pool-size: 10
+
 
 server:
   port: 9191

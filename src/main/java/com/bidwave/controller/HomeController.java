@@ -20,8 +20,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        List<AuctionDTO> featuredAuctions = homeService.getFeaturedAuctions();
-        model.addAttribute("featuredAuctions", featuredAuctions);
+    //   List<AuctionDTO> featuredAuctions = homeService.getFeaturedAuctions();
+     //   model.addAttribute("featuredAuctions", featuredAuctions);
         return "main";
     }
 }

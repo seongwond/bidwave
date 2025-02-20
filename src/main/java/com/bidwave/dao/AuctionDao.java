@@ -8,6 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface AuctionDao {
-    @Select("SELECT * FROM auction WHERE status = 'ACTIVE' ORDER BY end_time ASC LIMIT 5")
+   // @Select("SELECT * FROM auction WHERE status = 'ACTIVE' ORDER BY end_time ASC LIMIT 5")
     List<AuctionDTO> findFeaturedAuctions();
 }
