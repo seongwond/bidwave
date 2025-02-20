@@ -1,4 +1,9 @@
 spring:
+  mvc:
+    static-path-pattern: /resources/**
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   application:
     name: BidWave
   main:
@@ -7,19 +12,22 @@ spring:
   banner:
     location: banner/banner.txt
   datasource:
-    url: jdbc:mysql://localhost:3306/bidwave?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/bidwave
     username: root
     password: 0000
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
 
 server:
   port: 9191
 
+
+
 mybatis:
   type-aliases-package: com.bidwave.dto
 
-
 logging:
   level:
-    root: INFO
-    com.bidwave: DEBUG
+    org.springframework: DEBUG

@@ -6,8 +6,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BidController {
 
-    @RequestMapping("/")
-    public String index() {
-        return "Hello!";
-    }
 }

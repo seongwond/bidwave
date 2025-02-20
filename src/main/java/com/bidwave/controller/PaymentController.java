@@ -6,8 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PaymentController {
 
-    @RequestMapping("/")
-    public String index() {
-        return "Hello!";
-    }
+
 }
