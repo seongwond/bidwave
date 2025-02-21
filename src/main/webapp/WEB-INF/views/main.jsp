@@ -14,6 +14,11 @@
         <a href="<c:url value='/login'/>">로그인</a>
         <a href="<c:url value='/register'/>">회원가입</a>
     </nav>
+    <ul>
+        <c:forEach var="item" items="${items}">
+            <li>${item.name} - ${item.description}</li>
+        </c:forEach>
+    </ul>
 </header>
 <main>
 

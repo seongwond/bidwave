@@ -9,14 +9,5 @@ import java.util.List;
 
 @Service
 public class HomeService {
-    private final AuctionDao auctionDao;
 
-    @Autowired
-    public HomeService(AuctionDao auctionDao) {
-        this.auctionDao = auctionDao;
-    }
-
-    public List<AuctionDTO> getFeaturedAuctions() {
-        return auctionDao.findFeaturedAuctions();
-    }
 }

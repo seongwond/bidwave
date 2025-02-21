@@ -1,7 +1,7 @@
 package com.bidwave.controller;
 
-import com.bidwave.dto.AuctionDTO;
-import com.bidwave.service.HomeService;
+import com.bidwave.dao.TestItemDao;
+import com.bidwave.dto.TestItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,17 +11,18 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    private final HomeService homeService;
+
+    private final TestItemDao testItemDao;
 
     @Autowired
-    public HomeController(HomeService homeService) {
-        this.homeService = homeService;
+    public HomeController(TestItemDao testItemDao) {
+        this.testItemDao = testItemDao;
     }
 
     @GetMapping("/")
     public String home(Model model) {
-    //   List<AuctionDTO> featuredAuctions = homeService.getFeaturedAuctions();
-     //   model.addAttribute("featuredAuctions", featuredAuctions);
+        List<TestItem> items = testItemDao.getAllItems();
+        model.addAttribute("items", items);
         return "main";
     }
 }
