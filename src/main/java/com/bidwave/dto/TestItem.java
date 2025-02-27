@@ -11,5 +11,4 @@ public class TestItem {
     private String name;
     private String description;
 
-    // Getters and setters
 }

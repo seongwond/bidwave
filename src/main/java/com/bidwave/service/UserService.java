@@ -1,28 +1,45 @@
 package com.bidwave.service;
 
-import com.bidwave.dao.UserDao;
+import com.bidwave.dao.UserDAO;
 import com.bidwave.dto.UserDTO;
-import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
-@RequiredArgsConstructor
-public class UserService {
-    private final UserDao userDao;
+public class UserService implements UserDetailsService {
 
-    public void registerUser(UserDTO userDTO) {
-        // 비밀번호 암호화 등의 로직 추가 가능
-        userDao.insertUser(userDTO);
+    private final UserDAO userDAO;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserDAO userDAO, PasswordEncoder passwordEncoder) {
+        this.userDAO = userDAO;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public boolean authenticateUser(String email, String password) {
-        UserDTO user = userDao.getUserByEmail(email);
+    // 회원가입 처리
+    public void registerUser(UserDTO user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userDAO.registerUser(user);
+    }
+
+    // 이메일로 사용자가 있는지 조회하기
+    public UserDTO findByEmail(String email) {
+        return userDAO.findByEmail(email);
+    }
+
+    // loadUserByUsername() 사용자 정보를 가져오고 인증하는 작업을 Security가 자동으로 처리한다고 함 메모..
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        UserDTO user = findByEmail(username);
         if (user != null) {
-            // 실제로는 암호화된 비밀번호를 비교해야 합니다.
-            // 예: return passwordEncoder.matches(password, user.getPassword());
-            return user.getPassword().equals(password);
+            return new User(user.getEmail(), user.getPassword(), new ArrayList<>());
         }
-        return false;
+        throw new UsernameNotFoundException("User not found with username: " + username);
     }
-
 }
