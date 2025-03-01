@@ -1,0 +1,112 @@
+/* 회원가입 컨테이너 스타일 */
+.register-container {
+    max-width: 500px; /* 최대 너비 500px */
+    margin: 50px auto; /* 중앙 정렬 (위아래 50px, 좌우 자동) */
+    padding: 30px; /* 안쪽 여백 */
+    background-color: #fff; /* 배경 흰색 */
+    border: 1px solid #ddd; /* 연회색 테두리 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 은은한 그림자 */
+}
+
+/* 제목 스타일 */
+.register-container h2 {
+    text-align: center; /* 제목 가운데 정렬 */
+    color: #3f1a6e; /* 진한 보라색 글자 */
+    margin-bottom: 20px; /* 아래 여백 */
+}
+
+/* 폼 전체 스타일 */
+.register-form {
+    display: flex; /* 플렉스 레이아웃 */
+    flex-direction: column; /* 세로 정렬 */
+    gap: 15px; /* 입력란 사이 간격 */
+}
+
+.form-group {
+    display: flex; /* 가로 정렬 (레이블+입력란 나란히) */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-bottom: 10px; /* 아래 여백 */
+    position: relative; /* 에러메시지 절대 위치 조정용 */
+}
+
+.form-group label {
+    width: 100px; /* 레이블 너비 고정 */
+    font-weight: bold; /* 글자 굵게 */
+    text-align: left; /* 왼쪽 정렬 */
+    margin-right: 10px; /* 입력란과의 여백 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.form-group input {
+    flex-grow: 1; /* 남는 공간 전부 차지 */
+    padding: 12px; /* 안쪽 여백 */
+    border: 1px solid #ddd; /* 연회색 테두리 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+    font-size: 16px; /* 글자 크기 */
+}
+
+/* 플레이스홀더 스타일 */
+.form-group input::placeholder {
+    font-size: 13px; /* 플레이스홀더 글자 크기 */
+    color: #aaa; /* 연한 회색 글자 */
+}
+
+/* 에러 메시지 스타일 */
+.form-group .error-message {
+    position: absolute; /* 입력란 바로 아래 고정 */
+    left: 110px; /* 레이블 너비 + 여백 */
+    top: 100%; /* 바로 아래 */
+    margin-top: 3px; /* 약간 띄우기 */
+    font-size: 12px; /* 작은 글자 */
+    color: red; /* 빨간색 (에러 표시) */
+}
+
+/* 폼 전체 간격 정리 */
+.register-form {
+    display: flex; /* 다시 플렉스 적용 (이중 선언인데 문제는 없음) */
+    flex-direction: column; /* 세로 정렬 */
+    gap: 30px; /* 섹션 사이 넉넉한 간격 */
+}
+
+/* 버튼 스타일 */
+.btn-register {
+    background-color: #3f1a6e; /* 보라색 버튼 */
+    color: white; /* 흰색 글자 */
+    padding: 12px 20px; /* 크기 확보 */
+    border: none; /* 테두리 없음 */
+    border-radius: 4px; /* 모서리 둥글게 */
+    cursor: pointer; /* 포인터 커서 */
+    font-size: 16px; /* 글자 크기 */
+    margin-top: 10px; /* 위쪽 여백 */
+}
+
+.btn-register:hover {
+    background-color: #2e1354; /* 진한 보라색 (호버 시) */
+}
+
+/* 반응형 처리 - 모바일 대응 */
+@media (max-width: 768px) { /* 화면 너비 768px 이하일 때 */
+    .form-group {
+        flex-direction: column; /* 레이블+입력란 세로로 쌓기 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        position: static; /* 위치 조정 해제 */
+    }
+
+    .form-group label {
+        width: 100%; /* 레이블 너비 100% */
+        text-align: left; /* 왼쪽 정렬 */
+        margin-bottom: 5px; /* 레이블과 입력란 사이 여백 */
+    }
+
+    .form-group input {
+        width: 100%; /* 입력란도 너비 100% */
+    }
+
+    .form-group .error-message {
+        position: static; /* 아래로 자연스럽게 배치 */
+        margin-top: 5px; /* 위 여백 */
+        margin-left: 0; /* 왼쪽 여백 제거 */
+    }
+}

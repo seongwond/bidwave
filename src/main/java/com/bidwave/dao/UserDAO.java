@@ -10,6 +10,9 @@ public interface UserDAO {
     void registerUser(UserDTO user);
     // 회원가입 할 때 회원값 데이터베이스에 삽입
 
+    @Select("SELECT COUNT(*) > 0 FROM user WHERE email = #{email}")
+    boolean existsByEmail(String email); // 이메일 존재 여부 확인 쿼리
+
     @Select("SELECT * FROM user WHERE email = #{email}")
     UserDTO findByEmail(String email);
     // 로그인할 때 해당 이메일이 있는지 확인하는 select

@@ -1,0 +1,135 @@
+/* 전체 레이아웃 */
+body {
+    font-family: "Gowun Dodum", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    display: flex; /* Flexbox 레이아웃 사용 */
+    flex-direction: column; /* 세로 방향으로 정렬 */
+    min-height: 100vh; /* 화면 전체 높이를 기준으로 설정 */
+    font-style: normal;
+}
+
+/* 메인 콘텐츠 */
+main {
+    flex: 1; /* 메인 콘텐츠 영역을 확장하여 푸터를 아래로 밀어냄 */
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 로고와 네비게이션을 양 끝으로 정렬 */
+    border-bottom: 1px solid #ddd;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 로고 스타일 */
+.logo {
+    display: flex;
+    align-items: center; /* 로고와 텍스트를 세로로 정렬 */
+}
+
+.logo i {
+    font-size: 24px; /* Font Awesome 아이콘 크기 */
+    color: #3f1a6e; /* 아이콘 색상 */
+    margin-right: 10px; /* 아이콘과 텍스트 사이 간격 */
+}
+
+.logo span {
+    font-size: 20px; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 굵게 */
+    color: #3f1a6e; /* 텍스트 색상 */
+}
+
+/* 사용자 네비게이션 스타일 */
+.user-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 내부 요소들을 오른쪽으로 정렬 */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-nav a, .user-nav span {
+    text-decoration: none;
+    color: #555;
+    margin-left: 15px; /* 요소들 사이의 간격 */
+
+}
+
+.user-name {
+    margin-right: 15px; /* 환영 메시지와 다른 요소들 사이의 간격 */
+}
+
+/* 물품 등록 버튼 스타일 */
+.register-item {
+    background-color: #4CAF50;
+    color: white !important;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.register-item:hover {
+    background-color: #45a049;
+}
+
+/* 푸터 스타일 */
+.footer {
+    background-color: #3f1a6e; /* 배경색을 어두운 보라색으로 설정 */
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+    padding: 20px 40px; /* 내부 여백 설정 */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* 좌우로 정렬 */
+    align-items: flex-start; /* 상단 정렬 */
+}
+
+.footer-left {
+    max-width: 60%; /* 왼쪽 영역 너비 제한 */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo i {
+    font-size: 24px; /* Font Awesome 아이콘 크기 */
+    margin-right: 10px;
+}
+
+.footer-logo span {
+    font-size: 20px;
+}
+
+.footer-left p, .footer-right p, .footer-left small {
+    margin-top: 10px;
+}
+
+.footer-right h4 {
+    margin-bottom: 10px;
+}
+
+.footer-right i {
+    color: white; /* 인스타그램 아이콘 색상 */
+    font-size: 24px;
+}
+
+/* 푸터 하단 스타일 */
+.footer-bottom {
+    text-align: center;
+}
+
+
+
