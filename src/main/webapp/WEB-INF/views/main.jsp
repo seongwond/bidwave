@@ -16,6 +16,7 @@
             <c:when test="${not empty userName}">
                 <span class="user-name">환영합니다, ${userName}님!</span>
                 <a href="/logout">로그아웃</a>
+                <a href="/mypage">마이페이지</a>
                 <a href="/register-item" class="register-item">물품등록</a>
             </c:when>
             <c:otherwise>

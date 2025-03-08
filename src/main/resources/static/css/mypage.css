@@ -1,0 +1,44 @@
+/* 마이페이지 컨테이너 스타일 */
+.mypage-container {
+    width: 800px; /* 고정 너비 설정 */
+    max-width: 100%; /* 반응형 디자인 */
+    margin: 50px auto; /* 가운데 정렬 */
+    padding: 20px; /* 내부 여백 */
+    background-color: #fff; /* 배경색 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 */
+}
+
+/* 사용자 정보 섹션 스타일 */
+.user-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 입찰 목록 섹션 스타일 */
+.bid-list {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 입찰 테이블 스타일 */
+.bid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.bid-table th,
+.bid-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.bid-table th {
+    background-color: #f5f5f5;
+}

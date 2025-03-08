@@ -3,6 +3,8 @@ package com.bidwave.dao;
 import com.bidwave.dto.*;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 
 @Mapper
 public interface UserDAO {
@@ -16,4 +18,11 @@ public interface UserDAO {
     @Select("SELECT * FROM user WHERE email = #{email}")
     UserDTO findByEmail(String email);
     // 로그인할 때 해당 이메일이 있는지 확인하는 select
+
+    @Select("SELECT b.bid_id, b.user_id, b.auction_id, b.amount, b.bid_time, p.product_name " +
+            "FROM bid b " +
+            "INNER JOIN auction a ON b.auction_id = a.auction_id " +
+            "INNER JOIN product p ON a.product_id = p.product_id " +
+            "WHERE b.user_id = #{email}")
+    List<BidDTO> getBidListByUserEmail(String email);
 }

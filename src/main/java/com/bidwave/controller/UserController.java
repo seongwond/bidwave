@@ -1,5 +1,6 @@
 package com.bidwave.controller;
 
+import com.bidwave.dto.BidDTO;
 import com.bidwave.dto.UserDTO;
 import com.bidwave.service.UserService;
 import jakarta.validation.Valid;
@@ -10,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -69,6 +72,22 @@ public class UserController {
             return "login";
         }
         return "redirect:/main";  // Spring Security 성공한 경우 자동으로 /main 페이지로 이동
+    }
+
+    @GetMapping("/mypage")
+    public String showMyPage(Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        String email = principal.getName();
+        UserDTO user = userService.findByEmail(email);
+        List<BidDTO> bidList = userService.getBidListByUserEmail(email);
+
+        model.addAttribute("user", user);
+        model.addAttribute("bidList", bidList);
+        model.addAttribute("userName", user.getName());
+
+        return "mypage";
     }
 
 }

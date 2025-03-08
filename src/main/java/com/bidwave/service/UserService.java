@@ -1,6 +1,7 @@
 package com.bidwave.service;
 
 import com.bidwave.dao.UserDAO;
+import com.bidwave.dto.BidDTO;
 import com.bidwave.dto.UserDTO;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -55,5 +57,9 @@ public class UserService implements UserDetailsService {
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.registerUser(user);
+    }
+
+    public List<BidDTO> getBidListByUserEmail(String email) {
+        return userDAO.getBidListByUserEmail(email);
     }
 }
