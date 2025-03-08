@@ -2,19 +2,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
-<jsp:include page="/WEB-INF/views/head.jsp"/>
+<jsp:include page="/WEB-INF/views/header.jsp"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/register.css">
 <title>회원가입 - BidWave</title>
 <body>
-<header>
-    <div class="logo">
-        <a href="/main"> <i class="fa-solid fa-house-tsunami"></i></a>
-        <a href="/main"><span>BidWave</span></a>
-    </div>
-    <nav class="user-nav">
-        <a href="/login">로그인</a>
-    </nav>
-</header>
 
 <main class="register-container">
     <h2>회원가입</h2>

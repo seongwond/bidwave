@@ -2,16 +2,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
-<jsp:include page="/WEB-INF/views/head.jsp" />
+<jsp:include page="header.jsp" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/login.css">
 <title>로그인 - BidWave</title>
 <body>
-<header>
-    <div class="logo">
-        <a href="/main"> <i class="fa-solid fa-house-tsunami"></i></a>
-        <a href="/main"><span>BidWave</span></a>
-    </div>
-</header>
 
 <main class="login-container">
     <h2>로그인</h2>
@@ -49,7 +43,7 @@
 </main>
 
 <footer class="footer">
-    <jsp:include page="/WEB-INF/views/footer.jsp" />
+    <jsp:include page="footer.jsp" />
 </footer>
 
 <script src="<c:url value='/js/main.js'/>"></script>
