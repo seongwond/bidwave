@@ -14,6 +14,7 @@ public class ProductDTO {
   private String productName;
   private String description;
   private String productImage;
+  private int price;
   private java.sql.Timestamp endTime;
 
 
