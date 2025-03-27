@@ -21,7 +21,7 @@ public interface ProductDao {
     @Select("SELECT * FROM product WHERE product_id = #{productId}")
     ProductDTO fetchProductById(long productId); // 물품 ID로 조회
 
-    @Insert("INSERT INTO product (user_id, category_id, product_name, description, product_image, price, end_time) VALUES (#{userId}, #{categoryId}, #{productName}, #{description}, #{productImage}, #{price}, #{endTime})")
+    @Insert("INSERT INTO product (user_id, category_id, product_name, description, price, product_image, end_time) VALUES (#{userId}, #{categoryId}, #{productName}, #{description}, #{price}, #{productImage}, #{endTime})")
     void insertProduct(ProductDTO product); // 물품 등록
 
     @Update("UPDATE product SET user_id = #{userId}, category_id = #{categoryId}, product_name = #{productName}, description = #{description}, product_image = #{productImage}, price = #{price}, end_time = #{endTime} WHERE product_id = #{productId}")

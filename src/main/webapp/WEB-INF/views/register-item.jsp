@@ -14,7 +14,6 @@
         <a href="/main"><span>BidWave</span></a>
     </div>
     <nav class="user-nav">
-        <%-- 로그인 여부 확인 --%>
         <c:if test="${not empty userName}">
             <span class="user-name">환영합니다, ${userName}님!</span>
             <a href="/logout">로그아웃</a>
@@ -25,45 +24,53 @@
 
 <main class="register-item-container">
     <h2>물품등록</h2>
-    <form:form method="post" modelAttribute="item" class="register-item-form">
+    <form:form method="post" modelAttribute="item" class="register-item-form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="category">카테고리 선택</label>
+            <select name="category_id" id="category" required>
+                <option value="">카테고리를 선택하세요</option>
+                <c:forEach var="category" items="${categories}">
+                    <option value="${category.categoryId}">${category.categoryName}</option>
+                </c:forEach>
+            </select>
+        </div>
+
         <div class="form-group">
             <label for="productName">상품명:</label>
-            <form:input path="productName" id="productName" placeholder="상품명을 입력하세요"/>
+            <form:input path="productName" id="productName" placeholder="상품명을 입력하세요."/>
         </div>
 
         <div class="form-group">
             <label for="description">상품 설명:</label>
-            <textarea id="description" name="description" placeholder="상품 설명을 입력하세요"></textarea>
+            <form:textarea path="description" id="description" placeholder="상품에 대한 설명을 입력하세요."></form:textarea>
         </div>
 
         <div class="form-group">
-            <label for="price">가격:</label>
-            <div class="price-wrapper">
-                <input type="text" id="price" name="price" value="1,000" placeholder="가격을 입력하세요"/>
-                <button type="button" id="price-up">▲</button>
-                <button type="button" id="price-down">▼</button>
-            </div>
+            <label for="priceStr">가격:</label>
+            <label for="priceStr"></label><input type="text" id="priceStr" name="priceStr" placeholder="가격을 입력하세요" />
+            <button type="button" id="price-up">▲</button>
+            <button type="button" id="price-down">▼</button>
         </div>
 
+        <!-- 이미지 미리보기 표시를 위한 img 태그 추가 -->
         <div class="form-group">
-            <label for="productImage">이미지 업로드:</label>
-            <input type="file" id="productImageInput" accept="image/*"/>
-            <!-- 이미지 미리보기 -->
-            <img id="productImagePreview" src="#" alt="" style="display:none; width: 100%; max-width: 300px; margin-top: 10px; border-radius: 8px;"/>
+            <label for="productImageInput">상품 이미지:</label>
+            <input type="file" id="productImageInput" name="productImageInput" accept="image/*"/>
+            <!-- 미리보기 이미지를 표시할 img 태그 추가 -->
+            <img id="productImagePreview" style="display:none; max-width: 200px; margin-top: 10px;"/>
         </div>
+
 
         <div class="form-group">
             <label for="endTime">경매 종료 시간:</label>
-            <form:input path="endTime" id="endTime" type="datetime-local" placeholder="경매 종료 시간을 입력하세요"/>
+            <input type="datetime-local" id="endTime" name="endTimeStr"/>
         </div>
 
-        <button type="submit" class="btn-submit">등록하기</button>
+        <div class="form-group">
+            <button type="submit" class="btn-submit">등록</button>
+        </div>
     </form:form>
 </main>
-
-<footer >
-    <jsp:include page="/WEB-INF/views/footer.jsp" />
-</footer>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const priceInput = document.getElementById("price");
+    const priceInput = document.getElementById("priceStr"); // ID를 priceStr로 사용
     const priceUpButton = document.getElementById("price-up");
     const priceDownButton = document.getElementById("price-down");
     const productImageInput = document.getElementById("productImageInput");

@@ -29,10 +29,32 @@
 
 <main>
     <!-- 메인 콘텐츠 -->
+    <h2>등록된 상품</h2>
+    <div class="product-list">
+        <c:forEach var="product" items="${product}">
+            <div class="product">
+                <!-- 이미지 경로 수정 -->
+                <img src="<c:url value='${product.productImage}' />" alt="${product.productName}">
+                <h3>${product.productName}</h3>
+                <p>가격: ${product.price}원</p>
+                <p>등록한 사람:
+                    <c:forEach var="user" items="${users}">
+                        <c:if test="${product.userId == user.userId}">
+                            ${user.name}
+                        </c:if>
+                    </c:forEach>
+                </p>
+                <p>경매 종료시간: ${product.endTime}</p>
+                <a href="/product/${product.productId}">상세 보기</a>
+            </div>
+        </c:forEach>
+    </div>
 </main>
+
 <footer>
     <jsp:include page="/WEB-INF/views/footer.jsp" /> <!--footer -->
 </footer>
+
 <script src="<c:url value='/js/main.js'/>"></script>
 </body>
 </html>

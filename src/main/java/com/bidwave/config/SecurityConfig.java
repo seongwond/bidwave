@@ -15,6 +15,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .csrf().disable()
                 .authorizeHttpRequests(authz -> authz
                         .anyRequest().permitAll()  // 모든 요청에 대해 인증 없이 접근 허용
